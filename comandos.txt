@@ -1,0 +1,28 @@
+npm init -y
+npm i typescript -d
+git init
+npm tsc --init
+(para atualizações automáticas)
+npx ts-node-dev -d
+npm i express
+npm install @types/express -d
+npm i cors
+npm install @types/cors -d
+
+(knex cria banco local)
+knex --knexfile knexfile.ts migrate:latest
+
+
+
+--para alimentar as tabelas para teste
+-- SQLite
+INSERT INTO `users` (name, avatar, whatsapp, bio)
+VALUES ('Jorge' ,'https://images.unsplash.com/photo-1494959764136-6be9eb3c261e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80','33984277613','Formado em contabilidade');
+INSERT INTO `classes` ( subject, cost, user_id)
+VALUES ('matemática',80,1);
+INSERT INTO `class_schendule` (week_day, sc_from, sc_to, class_id)
+VALUES (1,480,720,1);
+INSERT INTO `class_schendule` (week_day, sc_from, sc_to, class_id)
+VALUES (3,600,1080,1);
+INSERT INTO `class_schendule` (week_day, sc_from, sc_to, class_id)
+VALUES (4,480,720,1);

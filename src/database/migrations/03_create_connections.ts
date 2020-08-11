@@ -1,0 +1,18 @@
+import Knex from 'knex';
+
+
+//criação de tabela
+export async function up(knex: Knex){
+return knex.schema.createTable('connections', table => {
+    table.increments('id').primary();
+    table.timestamp('created_at').defaultTo(knex.raw('CURRENT_TIMESTAMP')).notNullable();
+    table.integer('user_id').notNullable().references('id')
+    .inTable('users').onDelete('CASCADE').onUpdate('CASCADE');
+});
+}
+
+//rollback
+export async function down(knex: Knex)
+{
+    return knex.schema.dropTable('class_schendule');
+}
